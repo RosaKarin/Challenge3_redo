@@ -29,7 +29,6 @@ function getAPIdata() {
 	});
 }
 
-
 function onAPISucces(response) {
 	// get type of weather in string format
 	var type = response.weather[0].description;
@@ -42,7 +41,6 @@ function onAPISucces(response) {
 	weatherBox.innerHTML = degC + '&#176;C <br>' + type;
 }
 
-
 function onAPIError(error) {
 	console.error('Fetch request failed', error);
 	var weatherBox = document.getElementById('weather');
@@ -53,16 +51,6 @@ document.getElementById('getWeather').onclick = function(){
 	// init data stream
 	getAPIdata();
 };
-
-
- 
-// // Add the control to the map.
-// map.addControl(
-// new MapboxGeocoder({
-// accessToken: mapboxgl.accessToken,
-// mapboxgl: mapboxgl
-// })
-// );
 
 // // Set api token
 mapboxgl.accessToken = 'pk.eyJ1Ijoicm9zYWthcmluIiwiYSI6ImNrOHI4Njh1djAwbmYzZnFmbTB5M2s3ZmcifQ.NqmAg6EdHGHjWpmsr2XxgQ';
@@ -77,32 +65,62 @@ var map = new mapboxgl.Map({
 
 });
 
+// Add the control to the map.
+const geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken,
+  mapboxgl: mapboxgl
+});
+
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
 map.addControl(new mapboxgl.NavigationControl()); //zorgt voor inzoom/uitzoom controlls
 
-// Den Haag
-var popup = new mapboxgl.Popup().setHTML('<h3>Den Haag</h3><p>It is currently 11 degrees with an overcast of clouds</p>');
-var marker = new mapboxgl.Marker()
-  .setLngLat([4.312982, 52.077785])
-  .setPopup(popup)
-  .addTo(map);
+// // Den Haag
+// var popup = new mapboxgl.Popup().setHTML('<h3>Den Haag</h3><p>It is currently 11 degrees with an overcast of clouds</p>');
+// var marker = new mapboxgl.Marker()
+//   .setLngLat([4.312982, 52.077785])
+//   .setPopup(popup)
+//   .addTo(map);
 
-// Rotterdam
-var popup = new mapboxgl.Popup().setHTML('<h3>Rotterdam</h3><p>It is currently 11 degrees with an overcast of clouds</p>');
-var marker = new mapboxgl.Marker()
-  .setLngLat([4.47917, 51.9225])
-  .setPopup(popup)
-  .addTo(map);
+// // Rotterdam
+// var popup = new mapboxgl.Popup().setHTML('<h3>Rotterdam</h3><p>It is currently 11 degrees with an overcast of clouds</p>');
+// var marker = new mapboxgl.Marker()
+//   .setLngLat([4.47917, 51.9225])
+//   .setPopup(popup)
+//   .addTo(map);
 
-// Amsterdam
-var popup = new mapboxgl.Popup().setHTML('<h3>Amsterdam</h3><p>It is currently 10 degrees with an light intensity drizzle</p>');
-var marker = new mapboxgl.Marker()
-  .setLngLat([4.895168, 52.370216])
-  .setPopup(popup)
-  .addTo(map);
+// // Amsterdam
+// var popup = new mapboxgl.Popup().setHTML('<h3>Amsterdam</h3><p>It is currently 10 degrees with an light intensity drizzle</p>');
+// var marker = new mapboxgl.Marker()
+//   .setLngLat([4.895168, 52.370216])
+//   .setPopup(popup)
+//   .addTo(map);
 
-// Groningen
-var popup = new mapboxgl.Popup().setHTML('<h3>Groningen</h3><p>It is currently 10 degrees with an light intensity drizzle</p>');
-var marker = new mapboxgl.Marker()
-  .setLngLat([6.56667, 53.21917])
-  .setPopup(popup)
-  .addTo(map);
+// // Groningen
+// var popup = new mapboxgl.Popup().setHTML('<h3>Groningen</h3><p>It is currently 10 degrees with an light intensity drizzle</p>');
+// var marker = new mapboxgl.Marker()
+//   .setLngLat([6.56667, 53.21917])
+//   .setPopup(popup)
+//   .addTo(map);
+
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoicm9zYWthcmluIiwiYSI6ImNrOHI4Njh1djAwbmYzZnFmbTB5M2s3ZmcifQ.NqmAg6EdHGHjWpmsr2XxgQ';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-79.4512, 43.6568],
+    zoom: 13
+});
+
+// Add the control to the map.
+const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+});
+
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+
+
+
+
