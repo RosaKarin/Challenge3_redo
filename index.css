@@ -5,11 +5,12 @@
 }
 
 body {
-    background-image: url(Evening.png);
+    background-image: url(sunset.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    background-size: 100% 100%;
+    width: 100%;
+    /* background-position: center center; */
+    /* background-attachment: fixed; */
 }
 
 .grid-container {
@@ -21,10 +22,21 @@ body {
         "map";    
 }
 
-#map {
+#map { 
     grid-area: map;
-    display: inline-flex;
-    height: 87vh;
+    position: absolute; 
+    top: 100px; 
+    bottom: 15px; 
+    right: 15px;
+    width: 50%; 
+    margin-left: 50%;
+    border-radius: 5px;
+}
+
+.geocoder {
+    position: absolute;
+    z-index: 1;
+    margin-left: 2%;
 }
 
 #header {
@@ -33,6 +45,8 @@ body {
 
 #field {
     grid-area: field;
+    width: 95%;
+    height: 10%;
 }
 
 .grid-container {

@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <link href="index.css" rel="stylesheet" text="style/css">
-        <script src="main.js" defer></script>
-        <script src="weather.js" defer></script>
+        <script src="main2.js" defer></script>
+        <!-- <script src="weather.js" defer></script> -->
         <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
         <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
         <title>SpaceX Dashboard - Rosa van den Heuvel</title>
@@ -18,21 +18,30 @@
                 <h3>Welcome to your SPACEX dashboard</h3>
             </div>
             <div id="field" class="grid-item-2 glass">
-                <form>
+                <!-- <div id="geocoder" class="geocoder"></div> -->
+                <input type="text" class="veld1 geocoder" name="city" id="geocoder" placeholder="Enter city name"/>
+                <button class="button1" id="getWeather">Get the current weather</button>
+
+                <!-- <input type="button" class="button1" id="getWeather" value="Get the current weather" /> -->
+                <article class="weather" id="weather"></article> <!-- Zorgt voor result na klikken button  -->
+            </div>
+
+                <!-- <form>
                     <fieldset>
                         <legend>Fill in the city you would like to land in to see the current weather</legend>
-                        <!-- <label for="city" >Enter city name:</label> -->
+                        <label for="city" >Enter city name:</label>
                         <input type="text" class="veld1" name="city" id="city" value="Enter city name"/>
                         <input type="button" class="button1" id="getWeather" value="Get the current weather" />
                     </fieldset>
-                    <article class="weather" id="weather"></article> <!-- Zorgt voor result na klikken button -->
+                    <article class="weather" id="weather"></article> Zorgt voor result na klikken button 
                 </form>
-            </div>
+            </div> -->
             <div id="map" class="grid-item">
                 <h3 class="maptext">Weather map</h3>
             </div>
+
             <!-- <div class="grid-item">4</div> -->
-        </div>
+        
 
     </body>
 </html>
